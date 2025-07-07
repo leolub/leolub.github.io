@@ -9,11 +9,17 @@
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans">
 
-  <header class="bg-white shadow p-4">
+  <header
+  class="relative bg-cover bg-center bg-no-repeat shadow p-4"
+  style="background-image: 'https://img.17sucai.com/upload/1424582/2019-12-03/638be55cc06512e3d6e0debf927d77da.jpg?x-oss-process=style/ready';"
+>
+  <div class="absolute inset-0 bg-black/40"></div>
+  <div class="relative text-white">
     <h1 class="text-3xl font-bold">Computer Science</h1>
     <p class="mt-2">Greetings, I'm Siming Li, this is my homepage</p>
-    
-  </header>
+  </div>
+</header>
+
 
   <main class="container mx-auto py-8">
     <!-- 项目/作业 -->
@@ -39,6 +45,14 @@
       </div>
     </section>
 
+    <!-- leetcode -->
+    <section id="leetcode" class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">⌨️ Leetcode</h2>
+      <img src="https://leetcode-stats.vercel.app/api?username=leolu3278&theme=Light"
+      alt="Leetcode Stats"
+      class="max-w-lg mx-auto border rounded-lg shadow"
+      >
+    </section>
 
     <!-- 联系方式 -->
     <section id="contact">
