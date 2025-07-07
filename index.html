@@ -10,7 +10,7 @@
 <body class="bg-gray-100 text-gray-800 font-sans">
 
   <header
-  class="relative bg-cover bg-center bg-no-repeat shadow p-4 h-64"
+  class="relative bg-contain bg-center bg-no-repeat shadow p-4 h-64"
   style="background-image: url('https://img.17sucai.com/upload/1424582/2019-12-03/638be55cc06512e3d6e0debf927d77da.jpg?x-oss-process=style/ready');"
 >
   <div class="absolute inset-0 bg-black/40"></div>
@@ -21,7 +21,7 @@
 </header>
 
 
-  <main class="container mx-auto py-8">
+  <main class="container mx-auto py-8 flex flex-col space-y-12">
     <!-- 项目/作业 -->
     <section id="projects" class="mb-12">
       <h2 class="text-2xl font-semibold mb-4">🚀 Projects/Assignments</h2>
@@ -48,10 +48,16 @@
     <!-- leetcode -->
     <section id="leetcode" class="mb-12">
       <h2 class="text-2xl font-semibold mb-4">⌨️ Leetcode</h2>
+      <div class="float-root">
       <img src="https://leetcode-stats.vercel.app/api?username=leolu3278&theme=Light"
       alt="Leetcode Stats"
-      class="float-left mr-4 max-w-lg mx-auto border rounded-lg shadow"
+      class="float-left mr-4 max-w-lg border rounded-lg shadow"
       >
+      <img id=""
+      alt="Leetcode Pie chart"
+      class="block mr-4 max-w-lg border rounded-lg shadow"
+      >
+      </div>
     </section>
 
     <!-- 联系方式 -->
@@ -67,6 +73,31 @@
   <footer class="text-center py-6 text-sm text-gray-600">
     © 2025 Siming Li · Published on GitHub Pages
   </footer>
+
+
+  <!-- 饼图提取脚本 -->
+  <script>
+  (async function () {
+    const username = 'leolu3278';
+    try {
+      const res = await fetch(`https://leetcode-stats-api.herokuapp.com/leolu3278`);
+      const { easySolved=0, mediumSolved=0, hardSolved=0 } = await res.json();
+      const config = {
+        type:'pie',
+        data:{
+          labels:['Easy','Medium','Hard'],
+          datasets:[{ data:[easySolved, mediumSolved, hardSolved],
+            backgroundColor:['#34D399','#FBBF24','#EF4444'] }]
+        },
+        options:{ plugins:{ legend:{ position:'bottom' } } }
+      };
+      const url = 'https://quickchart.io/chart?c=' + encodeURIComponent(JSON.stringify(config)) + '&width=400&height=300';
+      document.getElementById('difficulty-chart').src = url;
+    } catch (e) {
+      console.error('Fail to load', e);
+    }
+  })();
+</script>
 
 </body>
 </html>
