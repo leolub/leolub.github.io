@@ -51,11 +51,11 @@
       <div class="float-root">
       <img src="https://leetcode-stats.vercel.app/api?username=leolu3278&theme=Light"
       alt="Leetcode Stats"
-      class="float-left mr-4 max-w-lg border rounded-lg shadow"
+      class="float-left mr-4 h-60 max-w-lg border rounded-lg shadow"
       >
-      <img id=""
+      <img id="chart"
       alt="Leetcode Pie chart"
-      class="block mr-4 max-w-lg border rounded-lg shadow"
+      class="block mr-4  h-60 max-w-lg border rounded-lg shadow"
       >
       </div>
     </section>
@@ -82,17 +82,28 @@
     try {
       const res = await fetch(`https://leetcode-stats-api.herokuapp.com/leolu3278`);
       const { easySolved=0, mediumSolved=0, hardSolved=0 } = await res.json();
+      const difficulties = [
+        {label:'Easy',count:easySolved, color:'#34D399'},
+        {label:'Medium',count:mediumSolved, color:'#FBBF24'},
+        {label:'Hard',count:hardSolved, color:'#EF4444'},
+      ];
+      const filtered = difficulties.filter(d => d.count > 0);
+      const labels = filtered.map(d => d.label);
+      const data   = filtered.map(d => d.count);
+      const colors = filtered.map(d => d.color);
       const config = {
         type:'pie',
         data:{
-          labels:['Easy','Medium','Hard'],
-          datasets:[{ data:[easySolved, mediumSolved, hardSolved],
-            backgroundColor:['#34D399','#FBBF24','#EF4444'] }]
+          labels,
+          datasets:[{data,
+          backgroundColor:colors,
+          borderColor: 'transparent'}]
         },
         options:{ plugins:{ legend:{ position:'bottom' } } }
       };
-      const url = 'https://quickchart.io/chart?c=' + encodeURIComponent(JSON.stringify(config)) + '&width=400&height=300';
-      document.getElementById('difficulty-chart').src = url;
+      const encoded = encodeURIComponent(JSON.stringify(config));
+      document.getElementById('chart').src =
+        `https://quickchart.io/chart?c=${encoded}&width=400&height=300`;
     } catch (e) {
       console.error('Fail to load', e);
     }
