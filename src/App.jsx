@@ -554,15 +554,9 @@ function App() {
                   </div>
                 </div>
 
-                <div className="leetcode-actions">
-                  <a
-                    href={`https://leetcode.com/${username}/`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="project-link"
-                  >
-                    View Profile
-                  </a>
+                <div className="leetcode-live-pill">
+                  <span className="leetcode-live-dot"></span>
+                  <span>Difficulty distribution percentage</span>
                 </div>
 
                 {leetcodeError && (
