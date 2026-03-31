@@ -40,7 +40,7 @@ function App() {
 
     async function loadLeetcodeStats() {
       try {
-        const res = await fetch(`https://leetcode-stats-api.herokuapp.com/${username}`)
+        const res = await fetch(`https://leetcode-stats.tashif.codes/${username}`)
         if (!res.ok) throw new Error('Failed to fetch LeetCode stats')
 
         const data = await res.json()
