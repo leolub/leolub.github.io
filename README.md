@@ -14,6 +14,7 @@ I specialize in building practical, scalable, and user-focused software—rangin
 
 To get this React project up and running on your local machine, follow these steps:
 
+'''bash
 git clone https://github.com/leolub/leolub.github.io.git
 cd leolub.github.io
 npm install
