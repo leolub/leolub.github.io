@@ -49,17 +49,29 @@ a {
 
 .app {
   min-height: 100vh;
+  padding-top: 96px;
 }
 
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: min(1240px, calc(100% - 56px));
   margin: 0 auto;
-  padding: 22px 0;
+  padding: 18px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
-  z-index: 20;
+  z-index: 1000;
+
+  background: rgba(10, 11, 15, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
 }
 
 .logo {
@@ -233,6 +245,7 @@ a {
 .section {
   position: relative;
   padding: 110px 0;
+  scroll-margin-top: 120px;
 }
 
 .section-inner {
@@ -1069,8 +1082,9 @@ a {
 
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
-    gap: 16px;
+    width: min(100%, calc(100% - 24px));
+    padding: 14px 16px;
+    gap: 12px;
   }
 
   .nav-links {

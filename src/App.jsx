@@ -102,7 +102,7 @@ function App() {
   return (
     <div className="app">
       <header className="navbar">
-        <div className="logo">Siming Li</div>
+        <a href='#hero' className="logo">Siming Li</a>
 
         <nav className="nav-links">
           <a href="#about">About</a>
@@ -115,7 +115,7 @@ function App() {
       </header>
 
       <main>
-        <section className="hero">
+        <section id="hero" className="hero">
           <div className="hero-content">
             <div className="hero-copy">
               <h1>Siming Li</h1>
