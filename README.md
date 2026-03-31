@@ -10,11 +10,21 @@ I specialize in building practical, scalable, and user-focused software—rangin
 
 ---
 
+## 🛠️ Tech Stack
+
+- Frontend: React.js, Vite, Tailwind CSS, Framer Motion
+
+- Backend: Node.js, Python, Java, Spring Boot
+
+- Tools: Git, Docker, GitHub Actions (Auto-deploy), Postman
+
+---
+
 ### 💻 Run Locally
 
-To get this React project up and running on your local machine, follow these steps:
+- To get this React project up and running on your local machine, follow these steps:
 
-'''bash
+```bash
 git clone https://github.com/leolub/leolub.github.io.git
 cd leolub.github.io
 npm install
